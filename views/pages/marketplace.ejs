@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Words with Strangers 🤔</title>
+        <meta charset="utf-8">
+        <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shirnk-to-fit=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="stylesheets/index.css" type="text/css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+
+        <nav class="navbar navbar-inverse" style='height:8vh;'>
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href='/search'><img class="" style='height:7vh; width:7vh; float:left; margin-top:0.2vh;margin-left:1vw;margin-right: 1vw;' src="./img/logo.png"></a>
+                    <a class="navbar-brand" style='left:50%; margin-right:-50%;margin-left:-4vw; font-family: "Poppins", sans-serif;'><font size='4'>Words With Strangers</font></a>
+                    <a href='/gameplay'>
+                        <img style='height:7vh; width:7vh; float:right; margin-top:0.2vh; margin-right: 1vw;' class="" src="./img/gameplay.png">
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <div style='text-align:center;'>
+            <h1 style=' font-family: "Poppins", sans-serif;'>Marketplace</h1>
+            <h5 style='color:#969696'><i>Collect new words and points!</i></h5>
+        </div>
+    </head>
+    <body>
+        <style type="text/css">
+            /* The Modal (background) */
+            .modal {
+                display: none; /* Hidden by default */
+                position: fixed; /* Stay in place */
+                z-index: 40; /* Sit on top */
+                padding-top: 100px; /* Location of the box */
+                left: 0;
+                top: 0;
+                width: 100%; /* Full width */
+                height: 100%; /* Full height */
+                overflow: auto; /* Enable scroll if needed */
+                background-color: rgb(0,0,0); /* Fallback color */
+                background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            }
+    
+            .stillshow {
+                color: aliceblue;
+                text-decoration: none;
+            }
+    
+                /*Top links*/
+                .stillshow:hover {
+                    color: #a6adb3;
+                    text-decoration: none;
+                }
+    
+            /* Modal Content */
+            .modal-content {
+                background-color: #b8eaff;
+                margin: auto;
+                padding: 20px;
+                border-radius: 25px;
+                border: 5px solid #888888;
+                font-weight: bold;
+                width: 60%;
+                overflow-y: auto;
+            }
+    
+            /* The Close Button */
+            .close {
+                color: #aaaaaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
+    
+                .close:hover,
+                .close:focus {
+                    color: #000;
+                    text-decoration: none;
+                    cursor: pointer;
+                }
+    
+    
+            .fade-in {
+                opacity: 1;
+                animation-name: fadeInOpacity;
+                animation-iteration-count: 1;
+                animation-timing-function: ease-in;
+                animation-duration: 0.8s;
+            }
+    
+            @keyframes fadeInOpacity {
+                0% {
+                    opacity: 0;
+                }
+    
+                100% {
+                    opacity: 1;
+                }
+            }
+    
+            .zoom-out {
+                animation: zoomOut 1s ease-out forwards;
+            }
+    
+            @keyframes zoomOut {
+                0% {
+                    transform: scale(1.0);
+                    width: auto;
+                    height: auto;
+                    opacity: 1;
+                    margin-top: 0px;
+                    transform: skew(0);
+                }
+    
+                60% {
+                    transform: scale(0.3);
+                    opacity: 0.7;
+                }
+    
+                90% {
+                    transform: scale(0.08);
+                    opacity: 0.3;
+                }
+    
+                100% {
+                    transform: scale(0.0001);
+                    width: 0px;
+                    height: 0px;
+                    opacity: 0;
+                    margin-top: 350px;
+                    display: none;
+                }
+            }
+        </style>
+
+        <div id="purchaseModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content" style="max-height:60%; overflow-y:auto">
+                <span class="close">×</span>
+                <img style="display:block ;margin-left:auto; margin-right:auto; width:50%" src="" alt="Package" id="productPhoto">
+                <p id="popuptext">
+                </p>
+            </div>
+    
+        </div>
+        <div class='products' style='height: 75vh;display: inline-block; width:auto; margin-left:31%; margin-right:25%;'>
+            <div id='item1' onclick='purchase("item1")' style='height:max-content;width:max-content; display: inline-block;'>
+                <img style='height:12vh; width:13vh;margin-top:0.6vh;display: block; margin:auto;' class="" src="./img/packs/joker.png"><br/>
+                <div style='display: inline-block;margin-top:-0.3vh;'>"Clowning Around" Pack</div><br/>
+                <i style='color:#b34734;display: inline-block; margin-left: 5vw;'>Leaves 02/14/20</i><br/>
+            </div>
+            <br/>
+            <br/>
+            <div id='item2' onclick='purchase("item2")' style='height:max-content;width:max-content; display: inline-block;'>
+                <img style='height:12vh; width:13vh;margin-top:0.6vh;display: block; margin:auto;' class="" src="./img/packs/atmospheric.png"><br/>
+                <div style='display: inline-block;margin-top:-0.3vh;'>"Social Superhero" Pack</div><br/>
+                <i style='color:#b34734;display: inline-block; margin-left: 5vw;'>Leaves 03/15/20</i><br/>
+            </div>
+            <br/>
+            <br/>
+            <div id='item3' onclick='purchase("item3")' style='height:max-content;width:max-content; display: inline-block;'>
+                <img style='height:12vh; width:13vh;margin-top:0.6vh;display: block; margin:auto;' class="" src="./img/packs/snowman.png"><br/>
+                <div style='display: inline-block;margin-top:-0.3vh;'>"Holiday Cheer" Pack</div><br/>
+                <i style='color:#b34734;display: inline-block; margin-left: 5vw;'>Leaves 12/25/20</i><br/>
+            </div>
+            <br/>
+            <br/>
+            <div id='item4' onclick='purchase("item4")' style='height:max-content;width:max-content; display: inline-block;'>
+                <img style='height:12vh; width:13vh;margin-top:0.6vh;display: block; margin:auto;' class="" src="./img/packs/drop-down.png"><br/>
+                <div style='display: inline-block;margin-top:-0.3vh;'>"Hangry" Pack</div><br/>
+                <i style='color:#b34734;display: inline-block; margin-left: 5vw;'>Leaves 11/21/20</i><br/>
+            </div>
+            <br/>
+            <br/>
+            <div id='item5' onclick='purchase("item5")' style='height:max-content;width:max-content; display: inline-block;'>
+                <img style='height:12vh; width:13vh;margin-top:0.6vh;display: block; margin:auto;' class="" src="./img/packs/portal.png"><br/>
+                <div style='display: inline-block;margin-top:-0.3vh;'>"Digital Medusa" Pack</div><br/>
+                <i style='color:#b34734;display: inline-block; margin-left: 5vw;'>Leaves 10/11/21</i><br/>
+            </div>
+            <br/>
+            <br/>
+            <div id='points' style='background:palevioletred; padding:1vh 1vh 1vh 1vh; margin-bottom:7vh; border-radius: 25px; width:min-content; margin-left:3vw;'>
+                <div id='points1' onclick='purchase("points1")' style='height:max-content;width:max-content; display: inline-block;'>
+                    <img style='height:12vh; width:13vh;margin-top:0.6vh;display: block; margin:auto;' class="" src="./img/packs/dollar.png"><br/>
+                    <div style='display: inline-block;margin-top:-0.3vh;'>10 Points Pack</div><br/>
+                    <i style='color:#dddddd;display: inline-block;'>Leaves 10/11/21</i><br/>
+                </div>
+                <br/>
+                <br/>
+                <div id='points2' onclick='purchase("points2")' style='height:max-content;width:max-content; display: inline-block;'>
+                    <img style='height:12vh; width:13vh;margin-top:0.6vh;display: block; margin:auto;' class="" src="./img/packs/dollars.png"><br/>
+                    <div style='display: inline-block;margin-top:-0.3vh;'>50 Points Pack</div><br/>
+                    <i style='color:#dddddd;display: inline-block;'>Leaves 10/11/21</i><br/>
+                </div>
+                <br/>
+                <br/>
+                <div id='points3' onclick='purchase("points3")' style='height:max-content;width:max-content;display: inline-block;'>
+                    <img style='height:12vh; width:13vh;margin-top:0.6vh;display: block; margin:auto;' class="" src="./img/packs/manydollars.png"><br/>
+                    <div style='display: inline-block;margin-top:-0.3vh;'>100 Points Pack</div><br/>
+                    <i style='color:#dddddd;display: inline-block;'>Leaves 10/11/21</i><br/>
+                </div>
+                <br/>
+                <br/>
+
+                <script type="text/javascript">
+                    var itemToWords = {'item1':['Nincompoop', 'Shenanigan', 'Doohickey'], 'item2':['Culture', 'Justice', 'Empower'], 'item3':['Dreidel', 'Chimney', 'Eggnog'], 'item4':['Hangry', 'Starving', 'Food'], 'item5':['Security', 'Blockchain', 'Mining'], 'points1':['', '10 points', ''], 'points2':['', '50 points', ''], 'points3':['', '100 points', '']}
+                    function purchase(name) {
+                        var itemToWords = {'item1':['Nincompoop', 'Shenanigan', 'Doohickey'], 'item2':['Empower', 'Culture', 'Leadership'], 'item3':['Dreidel', 'Chimney', 'Eggnog'], 'item4':['Hangry', 'Starving', 'Food'], 'item5':['Security', 'Blockchain', 'Mining'], 'points1':['', '10 points', ''], 'points2':['', '50 points', ''], 'points3':['', '100 points', '']}
+                        // Get the modal
+                        var modal = document.getElementById("purchaseModal");
+                        var text = document.getElementById("popuptext");
+                        var modalPhoto = document.getElementById("productPhoto");
+
+                        var curitem = document.getElementById(name);
+                        // Get the <span> element that closes the modal
+                        var span = document.getElementsByClassName("close")[0];
+                        modalPhoto.src = curitem.children[0].src;
+                        //console.log(curitem.children[2]);
+                        text.innerHTML = `
+                        <h5 style='font-size: 4vw; text-align: center; font-weight: bold;'><b>` + curitem.children[2].innerHTML + `</b></h5>
+                        <h5 style='font-size: 3vw; text-align: center; font-style: italic; color:darkslategrey'><b>This package includes:</b></h5>
+                        <h5 style='font-size: 5vw; text-align: center;'><b>` + itemToWords[name][0] + `</b></h5>
+                        <h5 style='font-size: 5vw; text-align: center;'><b>` + itemToWords[name][1] + `</b></h5>
+                        <h5 style='font-size: 5vw; text-align: center;'><b>` + itemToWords[name][2] + `</b></h5><br/><br/><br/>
+                        <button id='purchase' onclick='getword(` + name + `)' style='display:block;margin: -8vh auto;border-radius: 15px; border: #4eb6d7; border-width: 1vw; border-style: solid; color:white; background:#4eb6d7;'><b>Purchase</b></button><br/>
+                        `.replace(/\n/g,"<br />"); // *******
+                        modal.style.display = "block";
+                    
+                
+                        // When the user clicks on <span> (x), close the modal
+                        span.onclick = function () {
+                            modal.style.display = "none";
+                        }
+                
+                        // When the user clicks anywhere outside of the modal, close it
+                        window.onclick = function (event) {
+                            if (event.target == modal) {
+                                modal.style.display = "none";
+                            }
+                        }
+                    }
+
+                    function getword(name) {
+                        for(let i = 0; i < 3; i++) {
+                            console.log("NEW BATCH");
+                            
+                            var xhr = new XMLHttpRequest();
+                            xhr.open("POST", "/create-words", true);
+                            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                            xhr.send(
+                                JSON.stringify({
+                                'word': itemToWords[name.id][i]
+                                })
+                            );
+                            console.log(xhr.response);
+                        }
+                    }
+                </script>
+            </div>
+        </div>
+    </body>
+</html>

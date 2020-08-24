@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>BikeRack</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shirnk-to-fit=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="stylesheets/index.css" type="text/css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <img class="img-icon" src="./img/bike_icon.jpeg">;
+                    <a class="navbar-brand" href="/index">BikeRack</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="/index">Home</a></li>
+                    <li id="user"><a href="/index"><%= user %></a></li>
+                    <li class="active"><a href="/search">Search</a></li>
+		    
+	            <li><a href="/logout">Log Out</a></li>
+                </ul>
+            </div>
+        </nav>	
+
+        <div id="view-search">
+            <div class="container">
+                <button style='float:right' id="results-btn">View Saved Results</button>
+                <h3 style="text-align: center">Search for Bikes</h3>
+                <div class="input-group flex-container">
+                    <div class="input-group flex-item">
+                        <div class="input-group-btn">
+                            <div class="dropdown">
+                                <button id="searchBtn" class="btn btn-default dropdown-toggle" 
+                                    type="button" data-toggle="dropdown" value="search">
+                                    City<span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <a href="#" class="dropdown-item" id="citySelect" 
+                                      onclick="dropdown(this.innerHTML);">City </a> 
+                                    <div role="separator" class="dropdown-divider"></div>
+                                    <a href="#" class="dropdown-item" id="countrySelect" 
+                                     onclick="dropdown(this.innerHTML);">Country</a>
+                                    <div role="separator" class="dropdown-divider"></div>
+                                    <a href="#" class="dropdown-item" id="companySelect" 
+                                        onclick="dropdown(this.innerHTML);">Company</a>
+                                </ul>
+                            </div>
+                        </div>
+                        <input type="text" id="searchBox" class="form-control" 
+                        aria-label="Text input with dropdown button" placeholder="Search for..." >
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit" id="submitSearch"><i 
+                                    class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="container flex-text-container">
+                    <div id="output"></div>
+                </div> 
+                <p id="locations"><%= locations %></p>
+
+            </div>
+            <br><br>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Words with Strangers 🤔</title>
+        <meta charset="utf-8">
+        <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shirnk-to-fit=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="stylesheets/index.css" type="text/css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+            <script type="text/javascript">
+            var socket;
+            var words;
+
+            function showwords() {
+                if (words !== undefined) {
+                    $('#word1').html('<b>'+ words[0]+'</b>');
+                    $('#word2').html('<b>'+ words[1]+'</b>');
+                    $('#word3').html('<b>'+ words[2]+'</b>');
+                    console.log("Loaded new words");
+                }
+            }
+
+            function changeColor(i){
+                $('#word'+ (i+1)).css('color', 'green');
+  
+            }
+            
+            function send(){
+                socket.send($('#chatbox').val());
+                $('#chatbox').val("");
+                updateScroll();
+            }
+            
+            window.onload = function(){
+                socket = new WebSocket("ws://" + window.location.host);
+                socket.onopen = function (event) {
+                    $('#sendButton').removeAttr('disabled');
+                    console.log("connected");
+                };
+                socket.onclose = function (event) {
+                    if(!event.wasClean){
+                        alert("you have Timed out");
+                    }
+                    
+                };
+                socket.onmessage = function (event) {
+                    var j = JSON.parse(event.data);
+                    $('#messages').append(j.msgs);
+                    if (j.words && !words){
+                        words = j.words
+                        showwords();
+                    }else if (j.words && words && j.words.length < words.length){
+                        for(var i =0; i<  words.length; i++){
+                            if(!j.words.includes(words[i])){
+                                changeColor(i);
+                            }
+                        }
+                    }
+
+                    
+                    if(j.winner >= 0){
+                        socket.close();
+                    }
+                }
+            }
+        </script>
+        <nav class="navbar navbar-inverse" style='height:8vh;'>
+
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href='/search'><img class="" style='height:7vh; width:7vh; float:left; margin-top:0.2vh;margin-left:1vw;margin-right: 1vw;' src="./img/logo.png"></a>
+                    <a class="navbar-brand" style='left:50%; margin-right:-50%;margin-left:-4vw; font-family: "Poppins", sans-serif;'><font size='4'>Words With Strangers</font></a>
+                    <a href='/marketplace'>
+                        <img style='height:7vh; width:7vh; float:right; margin-top:0.2vh; margin-right: 1vw;' class="" src="./img/marketplace.png">
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <div class='words col-md-1' id='wordsbar' style='font-family: "Varela Round", sans-serif; overflow-x: scroll; overflow-y: hidden; width:100%; max-width:100%; white-space: nowrap; background-color:lightblue; height:8vh; margin-top:-3vh;'>
+            <span id='word1' style='margin-left:1vw; color:darkred; margin-top:2vh; white-space: nowrap; width:auto; float:left; font-size: 4vw; margin-right:3vh;height:6vw;'><b>SampleWord</b></span>
+            <span id='word2' style='color:darkred; margin-top:2vh; white-space: nowrap; width:auto; float:left; font-size: 4vw; margin-right:3vh;height:6vw;'><b>SampleWord</b></span>
+            <span id='word3' style='color:darkred; margin-top:2vh; white-space: nowrap; width:auto; float:left; font-size: 4vw; margin-right:3vh;height:6vw;'><b>SampleWord</b></span>
+        </div>
+    </head>
+    <body style='background:#4eb6d7; overflow-y: scroll;'>
+        <textarea id='messages' disabled style='font-family: "Poppins", sans-serif; color:white; background:#0f262e; font-weight:bold;border-radius: 15px; border: #4eb6d7; border-width: 1vw; border-style: solid;width:90%;height:65vh; margin-left: 5%; margin-right: 5%;margin-top:3.5vh;'></textarea>
+        <div id='chatfield' style='width:100%;position:fixed;bottom:10; height:8vh;'>
+            <input id="chatbox" type="text" name="chatbox" style='margin-left:1vw; border-radius:15px; border-width: 0; font-family: "Poppins", sans-serif; width:78vw; height:7vh'placeholder=" Enter text here...">
+            <button id="sendButton" disabled ="disabled" style='margin-right:0.6vw; border-radius:50%; background:#057ae1; border-width: 0vh; border-color:#00a3e8;width:19vw;height:9vh;' onclick="send();" value="send">
+                <img src="./img/send.png" style='height:6vh; width:12vw'>
+            </button>
+        </div>
+        <script>
+            document.getElementById("chatbox")
+                .addEventListener("keyup", function(event) {
+                event.preventDefault();
+                if (event.keyCode === 13) {
+                    document.getElementById("sendButton").click();
+                }
+            });
+
+            function updateScroll(){
+                var element = document.getElementById("messages");
+                element.scrollTop = element.scrollHeight;
+            }
+        </script>
+    </body>
+</html>

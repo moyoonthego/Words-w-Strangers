@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Words with Strangers 🤔</title>
+        <meta charset="utf-8">
+        <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shirnk-to-fit=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="stylesheets/index.css" type="text/css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+
+        <nav class="navbar navbar-inverse" style='height:8vh;'>
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href='/search'><img class="" style='height:7vh; width:7vh; float:left; margin-top:0.2vh;margin-left:1vw;margin-right: 1vw;' src="./img/logo.png"></a>
+                    <a class="navbar-brand" style='left:50%; margin-right:-50%;margin-left:-4vw; font-family: "Poppins", sans-serif;'><font size='4'>Words With Strangers</font></a>
+                    <a href='/gameplay'>
+                        <img style='height:7vh; width:7vh; float:right; margin-top:0.2vh; margin-right: 1vw;' class="" src="./img/gameplay.png">
+                    </a>
+                </div>
+            </div>
+        </nav> 
+        <div style='text-align:center;'>
+            <h1 style=' font-family: "Poppins", sans-serif;'>Words</h1>
+            <h5 style='color:#969696'><i>View your words and trade them with a new friend!</i></h5>
+        </div>
+    </head>
+    <body>
+        <div id='listofwords' class='products' style='height: 75vh;display: block; width:100%; margin: auto;font-family: "Poppins", sans-serif;'>
+            <br/>
+            <h5 id='item1' style='font-size: 5vw; text-align: center;'><b>"Potato"</b></h5><br/>
+            <h5 id='item1' style='font-size: 5vw; text-align: center;'><b>"Banana"</b></h5><br/>
+            <h5 id='item1' style='font-size: 5vw; text-align: center;'><b>"Battery"</b></h5><br/>
+            <h5 id='item1' style='font-size: 5vw; text-align: center;'><b>"Water"</b></h5><br/>
+            <br/>
+        </div>
+        <div class='usercredentials' style='height: 20vh;display: block; width:auto; margin: auto;font-family: "Poppins", sans-serif;'>
+            <br/>
+            <input id="sendingitem" type="text" name="sendingitem" style='width:45vw; height:7vh; display: inline-block; margin-left: 2vw; margin-right: 5.5vw;border-radius: 15px; border: #4eb6d7; border-width: 1vw; border-style: solid;'placeholder="Enter word to send...">
+            <input id="recipientid" type="text" name="recipientid" style='width:45vw; height:7vh; display: inline-block; border-radius: 15px; border: #4eb6d7; border-width: 1vw; border-style: solid;'placeholder="Enter recipient ID...">
+        </div>
+        <button id='transfer' style='display: block; margin: -8vh auto;border-radius: 15px; border: #4eb6d7; border-width: 1vw; border-style: solid; color:white; background:#4eb6d7;'><b>Transfer</b></button>
+        <br/>
+        <br/>
+        <br/>
+        <br>
+        <script type="text/javascript">
+            // get an accountID
+            request('/words', { json: true }, (err, res, body) => {
+              if (err) { return console.log(err); }
+              console.log(body.url);
+            });
+
+                /*var text = document.getElementById("listofwords");
+                    text.innerHTML += `
+                        <br/>
+                        <h5 id='` +  + `' style='font-size: 5vw; text-align: center;'><b>"Word1"</b></h5><br/>
+                        <br/>
+                    `; 
+                var text = document.getElementById("popuptext");
+
+                text.innerHTML = `
+                <h5 style='font-size: 4vw; text-align: center; font-weight: bold;'><b>` + curitem.children[2].innerHTML + `</b></h5>
+                <h5 style='font-size: 3vw; text-align: center; font-style: italic; color:darkslategrey'><b>This package includes:</b></h5>
+                <h5 style='font-size: 5vw; text-align: center;'><b>` + words[name][0] + `</b></h5>
+                <h5 style='font-size: 5vw; text-align: center;'><b>` + words[name][1] + `</b></h5>
+                <h5 style='font-size: 5vw; text-align: center;'><b>` + words[name][2] + `</b></h5><br/><br/><br/>
+                <button id='purchase' onclick='getword(` + name + `)' style='display:block;margin: -8vh auto;border-radius: 15px; border: #4eb6d7; border-width: 1vw; border-style: solid; color:white; background:#4eb6d7;'><b>Purchase</b></button><br/>
+                `.replace(/\n/g,"<br />"); // *******  */          
+            // }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>BikeRack</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shirnk-to-fit=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="index.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="index.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <img class="img-icon" src="./img/logo.png">;
+                    <a class="navbar-brand" href="#">BikeRack</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html">Home</a></li>
+                </ul>
+                <button type="button" class="btn btn-default view-btn" id="search" 
+                    style="float:right;">Search</button>
+		<button type="button" class="btn btn-default view-btn" id="signup" 
+                    style="float:right;">Sign Up</button>
+                <button type="button" class="btn btn-default view-btn" id="login" 
+                    style="float:right;">Login</button>
+            </div>
+        </nav>	
+        <div class="view" id="view-main">
+            <div class="container">
+	        <div class="graphics">
+                    <div align="right">
+	                <h1> Explore. </h1>
+	                <h1> Search. </h1>
+	                <h2> Rent a bike anywhere.</h2>
+	            </div>
+	            <br> <br>
+                    <h2> About <font color="#6699ff"> BikeRack </font> </h2>
+	            <div class="div1">
+	                <br>
+	                <p> While on vacation, tourists may find it difficult and expensive to rent 
+                        cars and purchase insurance if they lack an international driving license. 
+                        Public transit can also be difficult to navigate in foreign languages. Public 
+                        bike sharing systems breaches the barrier of other expensive transit options 
+                        and offers a healthier alternative to exploration. </p>
+                        <p> <strong> <font color="#6699ff">BikeRack </font> </strong> allows users to 
+                        pre-plan their destinations by locating city bike stations worldwide, allowing 
+                        for an eco-friendly, affordable method of transit while travelling.</p>
+                        <br>
+	            </div> 
+                    <h2> Usage </h2>
+	            <div class="div1">
+	                <br>
+	                <p> Use our search feature and enter a city, country or company name. 
+                        <strong><font color="#6699ff">BikeRack</font> </strong> will display
+	                a list of bike sharing stations based on your input. 
+	                <br> By selecting <font color="#9966ff">city</font> or <font color="#9966ff">
+                        country</font>, view all bike sharing stations within the vicinity.
+	                <br> By selecting <font color="#9966ff">company</font>, view all locations 
+                        that the company services. 
+	                <br>  <br> 
+ 	                Optionally, create an account with us by signing up, or log in if you already 
+                        have an account to access additional features!</p>
+                        <br> Note: Search country by its abbreviation. 
+                        <br> <br>
+	            </div>
+	            <br>
+	            <br>
+                    <p align="right"> <strong><font color="#6699ff">BikeRack</font> </strong> is a project 
+                    created by a team of 4 university students at the University of Toronto. </p>
+	        </div> 
+            </div>
+        </div>
+        <div class="view" id="view-search">
+            <div class="container">
+                <h3 style="text-align: center">Search for Bikes</h3>
+                <div class="input-group flex-container">
+                    <div class="input-group flex-item">
+                        <div class="input-group-btn">
+                            <div class="dropdown">
+                                <button id="searchBtn" class="btn btn-default dropdown-toggle" 
+                                    type="button" data-toggle="dropdown" value="search">
+                                    City<span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li class="dropdown-item" id="citySelect" 
+                                      onclick="dropdown(this.innerHTML);">City</li>
+                                    <div role="separator" class="dropdown-divider"></div>
+                                    <li class="dropdown-item" id="countrySelect" 
+                                     onclick="dropdown(this.innerHTML);">Country</li>
+                                    <div role="separator" class="dropdown-divider"></div>
+                                    <li class="dropdown-item" id="companySelect" 
+                                        onclick="dropdown(this.innerHTML);">Company</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <input type="text" id="searchBox" class="form-control" 
+                        aria-label="Text input with dropdown button" placeholder="Search for...">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit" id="submitSearch"><i 
+                                    class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="container flex-text-container">
+                    <div id="output"></div>
+                </div>
+            </div>
+            <br><br>
+        </div>
+        <div class="view" id="view-login">
+            <div class="container">
+                <div class="login flex-container">
+	            <br> <br> <br> <br> <br> <br> <br>
+                    <form action="#"/search.html>
+                        <h4> Planning ahead for a trip? </h4>
+                        <p> Use <strong><font color="#6699ff">BikeRack</font></strong> to locate a 
+                        bike share location near your destination.</p>
+                        <center>
+                            <h1 align="center"> Log In </h1>
+		            <br>
+                            <input  class="form-control flex-item" type="user" name="username" 
+                            placeholder="username" autofocus>
+                            <input  class="form-control flex-item" type="password" name="password" 
+                            placeholder="password" >
+                            <br> <br>
+                            <input class="form-control flex-item" id = "submit" type="submit" 
+                            name="submit" value="Go!"><br>
+                        </center>
+                        <p id="error"></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="view" id="view-signup">
+            <div class="container">
+                <div class="login flex-container">
+	            <br> <br> <br> <br> <br> <br> <br>
+                    <form action="#"/search.html>
+                        <h4> Planning ahead for a trip? </h4>
+                        <p> Use <strong><font color="#6699ff">BikeRack</font></strong> 
+                        to locate a bike share location near your destination.</p>
+	                <center>
+                            <h1 align="center"> Sign Up </h1>
+		            <br>
+                            <input  class="form-control flex-item" type="user" name="username" 
+                            placeholder="username" autofocus>
+                            <input  class="form-control flex-item" type="password" name="password" 
+                            placeholder="password" >
+	                    <input  class="form-control flex-item" type="password" name="password" 
+                            placeholder="confirm password" >
+	                    <br> <br>
+                            <input class="form-control flex-item" id = "submit" type="submit" 
+                            name="submit" value="Sign up!"><br>
+                        </center>
+                        <p id="error"></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

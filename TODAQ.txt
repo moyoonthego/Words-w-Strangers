@@ -1,0 +1,10 @@
+DOCUMENTATION:
+docs.developer.todaqfinance.net
+github.com/TodaQFinance/cupcake
+
+API KEYS: 
+563b639d-0f90-447e-b0bb-110958b1fffa
+73cb0553-18a4-49d4-b95e-1b91a85bb1dd
+ 
+
+API URL = https://api.todaqfinance.net

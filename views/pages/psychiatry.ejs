@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Px</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shirnk-to-fit=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="stylesheets/index.css" type="text/css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="index.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <img class="img-icon" src="./img/bike_icon.jpeg">;
+                    <a class="navbar-brand">Px</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/search">Search</a></li>
+            
+                <li><a href="/logout">Log Out</a></li>
+                </ul>
+            </div>
+        </nav>	
+
+
+        <div class="view" id="view-signup">
+            <div class="container">
+                <div class="login flex-container">
+	            <br> <br> <br> <br> <br> <br> <br>
+			<form action="/psychiatrists" method="get">
+                    <br>
+                        <p> Please ensure all information is as accurate as possible. </p>
+
+                        <h4 align="center"> Medically Relevant Information and Symptoms: </h4>
+
+                        <p align="left"> <br>Age of Patient: </p>  
+                        <select class="custom-select">
+                          <option selected>Select:</option>
+                          <option value="1">Preschool (3-6 years)</option>
+                          <option value="2">Young Child (6-12 years)</option>
+                          <option value="3">Adolescent (12-18 years)</option>
+                          <option value="4">Adult (18+ years)</option>
+                          <option value="5">Geriatric (60+ years)</option>
+                        </select><br>
+
+                        <p align="left"> <br>Gender of Patient: </p>
+                         <select class="custom-select">
+                          <option selected>Select:</option>
+                          <option value="1">Male</option>
+                          <option value="2">Female</option>
+                          <option value="3">Other</option>
+                        </select><br> <br> 
+
+                        <p align="left"> Select all applicable symptoms. </p>
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="customCheck1">
+                      <label class="custom-control-label" for="customCheck1">Confused thinking</label>
+                      <br>
+                      <input type="checkbox" class="custom-control-input" id="customCheck2">
+                      <label class="custom-control-label" for="customCheck2">Reduced ability to concentrate</label>
+                      <br>
+                      <input type="checkbox" class="custom-control-input" id="customCheck3">
+                      <label class="custom-control-label" for="customCheck3">Deep, ongoing sadness, or feeling “down”</label>
+                      <br>
+                      <input type="checkbox" class="custom-control-input" id="customCheck4">
+                      <label class="custom-control-label" for="customCheck4">Inability to manage day-to-day stress and problems</label>
+                      <br>
+                      <input type="checkbox" class="custom-control-input" id="customCheck5">
+                      <label class="custom-control-label" for="customCheck5">Trouble understanding situations and other people</label>
+                      <br>
+                      <input type="checkbox" class="custom-control-input" id="customCheck6">
+                      <label class="custom-control-label" for="customCheck6">Withdrawal from others and from activities you used to enjoy</label>
+                      <br>
+                      <input type="checkbox" class="custom-control-input" id="customCheck7">
+                      <label class="custom-control-label" for="customCheck7">Extreme tiredness, low energy, or sleeping problems</label>
+                      <br>
+                      <input type="checkbox" class="custom-control-input" id="customCheck8">
+                      <label class="custom-control-label" for="customCheck8">Strong feelings of fear, worry, or guilt</label>
+                      <br>
+                      <input type="checkbox" class="custom-control-input" id="customCheck9">
+                      <label class="custom-control-label" for="customCheck9">Extreme mood changes, from highs to lows, often shifting very quickly</label>
+                      <br>
+                      <input type="checkbox" class="custom-control-input" id="customCheck10">
+                      <label class="custom-control-label" for="customCheck10">Detachment from reality </label>
+                      <br>
+                      <input type="checkbox" class="custom-control-input" id="customCheck11">
+                      <label class="custom-control-label" for="customCheck11">Paranoia</label>
+                      <br>
+                      <input type="checkbox" class="custom-control-input" id="customCheck12">
+                      <label class="custom-control-label" for="customCheck12">Hallucinations</label>
+                      <br>
+                      <input type="checkbox" class="custom-control-input" id="customCheck13">
+                      <label class="custom-control-label" for="customCheck13">Marked changes in eating habits</label>
+                      <br>
+                      <input type="checkbox" class="custom-control-input" id="customCheck14">
+                      <label class="custom-control-label" for="customCheck14">A change in sex drive</label>
+                      <br>
+                      <input type="checkbox" class="custom-control-input" id="customCheck15">
+                      <label class="custom-control-label" for="customCheck15">Drug or alcohol abuse</label>
+                    </div>
+
+	                <br> <br> <br> 
+
+
+                            <h4 align="center"> Patient Preferences: </h4>
+                            <p align="left"> The following are not necessary, but can help narrow down a physician that suits your needs. </p>
+                        <p align="left"> <br>Distance from General Practitioner's Office: </p>  
+                        <select class="custom-select">
+                          <option selected>Select:</option>
+                          <option value="1">Within 10km</option>
+                          <option value="2">Within 20km</option>
+                          <option value="3">Within 30km</option>
+                          <option value="4">Within 40km</option>
+                          <option value="5">Within 50km</option>
+                        </select><br>
+
+                        <p align="left"> <br>Gender of Doctor: </p>
+                         <select class="custom-select">
+                          <option selected>Select:</option>
+                          <option value="1">Male</option>
+                          <option value="2">Female</option>
+                          <option value="3">Other</option>
+                        </select><br>
+                        <p align="left"> <br>Years of Experience: </p>
+                        <select class="custom-select">
+                          <option selected>Select:</option>
+                          <option value="1">At least 1</option>
+                          <option value="2">At least 3</option>
+                          <option value="3">At least 5</option>
+                          <option value="4">At least 10</option>
+                          <option value="5">At least 20</option>
+                        </select><br>
+                        <p align="left"> <br>Wheelchair Accessibility: </p>
+
+                        <select class="custom-select custom-select-lg mb-3">
+                          <option selected>Select:</option>
+                          <option value="1">Yes</option>
+                          <option value="2">No</option>
+                        </select>
+                        <p align="left"> <br>Languages Spoken (additional to English, seperated by commas): </p>
+                        <input class="form-control" type="text" name="text" placeholder="Languages spoken" >
+                        <br> 
+                        <p align="left"> Disclaimer: All of the above information is stored in a secure database. </p> 
+				<br> 
+            			<input class="form-control" id = "submit" type="submit" name="submit"><br>
+  
+            			
+          		</form>
+                        
+                    
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

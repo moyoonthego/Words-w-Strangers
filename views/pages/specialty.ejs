@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Px</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shirnk-to-fit=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="stylesheets/index.css" type="text/css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+
+        <script type="text/javascript">
+                            //can do with Regex as well
+                            function sampleFunction() {
+                                 var fname = document.getElementById("name").value;
+                                 submitOK = true;
+                                 if (fname != "Psychiatry" && fname !="psychiatry" && fname != "Psychiatry " && fname != "psychiatry ") {
+                                     alert("We currently have no specialists in the field you are looking for. Try searching for a different field.");
+                                     return false;
+                                 } 
+                                
+                            }
+                            </script> 
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <img class="img-icon" src="./img/bike_icon.jpeg">;
+                    <a class="navbar-brand">Px</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/search">Search</a></li>
+		    
+	            <li><a href="/logout">Log Out</a></li>
+                </ul>
+            </div>
+        </nav>	
+
+        <div id="view-search">
+            <div class="container">
+                <form action="/psychiatry" method="get" onsubmit="return sampleFunction();">
+                <h3 style="text-align: center">Search for a physician by specialty:</h3>
+                <div class="input-group flex-container">
+                    <div class="input-group flex-item">
+                        
+                        <input type="text" id="name" class="form-control" 
+                        aria-label="Text input with dropdown button" placeholder="Search for..." >
+                        <div class="input-group-btn">
+                            <button onclick ="/index" class="btn btn-default" type="submit" id="submitSearch"><i 
+                                    class="glyphicon glyphicon-search"></i></button>
+
+                        </div></form> 
+                    </div>
+                </div>
+                <div class="container flex-text-container">
+                    <div id="output"></div>
+                </div> 
+
+            </div>
+            <br><br>
+        </div>
+    </body>
+</html>
